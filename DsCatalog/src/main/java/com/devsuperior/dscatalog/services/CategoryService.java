@@ -30,12 +30,21 @@ public class CategoryService {
 		Category category = categoryRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Category not found"));
 		return new CategoryDTO(category);
 	}
-
+	@Transactional
 	public CategoryDTO save(CategoryDTO categoryDTO) {
 		Category category = new Category();
 		category.setName(categoryDTO.getName());
 		category = categoryRepository.save(category);
 		categoryDTO.setId(category.getId());
 		return categoryDTO;
+	}
+	
+	@Transactional
+	public CategoryDTO update(Long id,CategoryDTO category) {
+		CategoryDTO categoryPesist = findById(id);
+		categoryPesist.setName(category.getName());
+		Category categoryUpdated = new Category(categoryPesist.getId(), categoryPesist.getName());
+		categoryRepository.save(categoryUpdated);
+		return categoryPesist;
 	}
 }
