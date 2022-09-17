@@ -1,5 +1,7 @@
 package com.devsuperior.dscatalog.services;
 
+import java.time.Instant;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -44,7 +46,7 @@ public class CategoryService {
 	public CategoryDTO update(Long id,CategoryDTO category) {
 		CategoryDTO categoryPesist = findById(id);
 		categoryPesist.setName(category.getName());
-		Category categoryUpdated = new Category(categoryPesist.getId(), categoryPesist.getName());
+		Category categoryUpdated = new Category(categoryPesist.getId(), categoryPesist.getName(),Instant.now());
 		categoryRepository.save(categoryUpdated);
 		return categoryPesist;
 	}
