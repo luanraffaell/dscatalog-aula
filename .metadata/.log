@@ -154,3 +154,15 @@ java.lang.InterruptedException
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-16 20:37:13.194
 !MESSAGE Boot LS startup time from start to initialized: 3077ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-16 21:53:48.382
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-16 21:53:48.383
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@4e6f6bae[org.springframework.tooling.boot.ls:1.38.0.202208110704(id=560)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-16 21:53:48.383
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-16 21:53:51.191
+!MESSAGE Boot LS startup time from start to initialized: 2808ms

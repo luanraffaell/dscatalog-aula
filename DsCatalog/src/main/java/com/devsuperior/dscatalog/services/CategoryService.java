@@ -37,6 +37,7 @@ public class CategoryService {
 	public CategoryDTO save(CategoryDTO categoryDTO) {
 		Category category = new Category();
 		category.setName(categoryDTO.getName());
+		category.setCreatedAt(Instant.now());
 		category = categoryRepository.save(category);
 		categoryDTO.setId(category.getId());
 		return categoryDTO;
@@ -46,7 +47,11 @@ public class CategoryService {
 	public CategoryDTO update(Long id,CategoryDTO category) {
 		CategoryDTO categoryPesist = findById(id);
 		categoryPesist.setName(category.getName());
-		Category categoryUpdated = new Category(categoryPesist.getId(), categoryPesist.getName(),Instant.now());
+		
+		Category categoryUpdated = new Category();
+		categoryUpdated.setName(categoryPesist.getName());
+		categoryUpdated.setId(categoryPesist.getId());
+		categoryUpdated.setUpdateAt(Instant.now());
 		categoryRepository.save(categoryUpdated);
 		return categoryPesist;
 	}

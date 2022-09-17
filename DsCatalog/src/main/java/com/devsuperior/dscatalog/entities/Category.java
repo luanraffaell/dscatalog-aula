@@ -11,6 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 @Entity
 @Table(name="tb_category")
 public class Category implements Serializable {
@@ -21,9 +24,11 @@ public class Category implements Serializable {
 	private Long id;
 	private String name;
 	
+	@CreationTimestamp
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE",updatable = false)
 	private Instant createdAt;
 	
+	@UpdateTimestamp
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE",insertable = false)
 	private Instant updateAt;
 
@@ -31,16 +36,11 @@ public class Category implements Serializable {
 	}
 
 
-	public Category(Long id, String name, Instant createdAt) {
+	public Category(Long id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.createdAt = createdAt;
-		this.updateAt = updateAt;
 	}
-
-
-
 
 
 	public Long getId() {
