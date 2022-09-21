@@ -80,7 +80,6 @@ public class UserService {
 		user.setFirstName(userDTO.getFirstName());
 		user.setLastName(userDTO.getLastName());
 		user.setEmail(userDTO.getEmail());
-		
 		user.getRoles().clear();
 		
 		for(RoleDTO roleDTO : userDTO.getRoles()) {

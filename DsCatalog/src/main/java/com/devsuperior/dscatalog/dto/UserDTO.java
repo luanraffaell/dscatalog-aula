@@ -74,6 +74,11 @@ public class UserDTO implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	
+	public Set<RoleDTO> getRoles() {
+		return roles;
+	}
 
 	@Override
 	public int hashCode() {
@@ -90,10 +95,6 @@ public class UserDTO implements Serializable{
 			return false;
 		UserDTO other = (UserDTO) obj;
 		return Objects.equals(id, other.id);
-	}
-
-	public Set<RoleDTO> getRoles() {
-		return roles;
 	}
 	
 	
