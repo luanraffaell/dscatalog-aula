@@ -80,7 +80,7 @@ public class ProductService {
 		product.getCategorias().clear();
 		
 		for(CategoryDTO car : productDTO.getCategories()) {
-			Category category = categoryRepository.getReferenceById(car.getId());
+			Category category = categoryRepository.getOne(car.getId());
 			product.getCategorias().add(category);
 		}
 		
